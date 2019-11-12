@@ -7,44 +7,49 @@ import javax.swing.JOptionPane;
  * */
 public class exercicio02 {
 	public static void main(String[] args) {
-		int somatorio;
 		int[][] matrizA = new int[2][3];
 		int[][] matrizB = new int[3][2];
-		int[][] matrizC = new int[2][2];
+
+		// Variáveis auxiliares
+		int n = matrizA[0].length; // numero de colunas da primeira matriz
+		int linhas = matrizA.length; // numero de linhas da resultante
+		int colunas = matrizB[0].length; // numero de colunas da resultante
+
+		//Matriz Resultante do Produto de A e B
+		int[][] matrizC = new int[linhas][colunas];
+
 
 		// Preenchimento Matriz A
 		System.out.println("Matriz A");
-		for (int i = 0; i < 2; i++) {
-			for (int j = 0; j < 3; j++) {
-				matrizA[i][j] = Integer.parseInt(JOptionPane
-						.showInputDialog("Valor ["+i+","+j+"]"));
+		for (int i = 0; i < matrizA.length; i++) {
+			for (int j = 0; j < matrizA[0].length; j++) {
+				matrizA[i][j] = Integer.parseInt(JOptionPane.showInputDialog("Valor [" + i + "," + j + "]"));
 			}
 		}
 
 		// Preenchimento Matriz B
 		System.out.println("Matriz B");
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 2; j++) {
-				matrizB[i][j] = Integer.parseInt(JOptionPane
-						.showInputDialog("Valor ["+i+","+j+"]"));
+		for (int i = 0; i < matrizB.length; i++) {
+			for (int j = 0; j < matrizB[0].length; j++) {
+				matrizB[i][j] = Integer.parseInt(JOptionPane.showInputDialog("Valor [" + i + "," + j + "]"));
 			}
 		}
 		// Lógica do Programa
-		for (int i = 0; i < 2; i++) {
-			for (int j = 0; j < 2; j++) {
-				somatorio = 0;
-				for (int k = 0; k < 2; k++) {
-					somatorio = somatorio + (matrizA[i][k] * matrizB[k][j]);
+		for (int i = 0; i < linhas; i++) {
+			for (int j = 0; j < colunas; j++) {
+				for (int k = 0; k < n; k++) {
+					matrizC[i][j] = matrizC[i][j] + matrizA[i][k] * matrizB[k][j];
 				}
-				matrizC[i][j] = somatorio;
+
 			}
 		}
 
-		for (int i = 0; i < 2; i++) {
-			for (int j = 0; j < 2; j++) {
-				System.out.print(matrizC[i][j]+", ");
+		for (int i = 0; i < linhas; i++) {
+			System.out.print("[ ");
+			for (int j = 0; j < colunas; j++) {
+				System.out.print(matrizC[i][j] + " ");
 			}
-			System.out.println();
+			System.out.println("]");
 		}
 
 	}
