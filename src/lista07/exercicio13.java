@@ -14,8 +14,8 @@ public class exercicio13 {
 	}
 
 	public static void main(String[] args) {
-		int tamanho = 100;
-		int inicioIntervalo = 1, fimIntervalo = 200, intervalo = fimIntervalo - inicioIntervalo;
+		int tamanho = 10;
+		int inicioIntervalo = 1, fimIntervalo = 200, intervalo = fimIntervalo - inicioIntervalo +1;
 		double [] vetor = new double[tamanho];
 		double somatorio = 0;
 		

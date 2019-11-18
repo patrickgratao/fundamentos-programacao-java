@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 public class exercicio08 {
 	public static void main(String[] args) {
-		int tamanho = 10;
+		int tamanho = 3;
 		String auxiliarNome;
 		double auxiliarNota;
 
