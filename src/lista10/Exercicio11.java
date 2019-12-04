@@ -21,7 +21,7 @@ public class Exercicio11 {
 		for (int i = 0; i < seq.size(); i++) {
 			for (int j = 0; j < seq.size(); j++) {
 				if (seq.get(i) == seq.get(j)) {
-					contRep.add(i, (contRep.get(i) + 1));
+					contRep.add(i, (contRep.get(i)++));
 				}
 			}
 			System.out.printf("%d ocorre %d vezes\n",seq.get(i),contRep.get(i));

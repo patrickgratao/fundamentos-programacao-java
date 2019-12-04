@@ -1,32 +1,51 @@
-/*Faça um programa em Java que preencha um vetor de 500 posições 
- * com números aleatórios variando entre 1 e 20000. 
- * Imprima o vetor gerado. U
- * se o método Math.random() para gerar um número aleatório. 
- * */
-
 package provaSubstitutiva;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Exercicio02 {
 
-	public static double numeroAleatorio(double inicioIntervalo, double fimIntervalo) {
-		double intervalo = fimIntervalo - inicioIntervalo + 1;
-		double random = inicioIntervalo + (Math.random() * intervalo);
-		return random;
+	// Método para gerar número Aleatório
+	public static int gerarAleatorio(int inicioIntervalo, int fimIntervalo) {
+		int aleatorio = inicioIntervalo + (int) (Math.random() * (fimIntervalo - inicioIntervalo + 1));
+		return aleatorio;
 	}
 
 	public static void main(String[] args) {
-		int tamanho = 5000;
-		double[] vetor = new double[tamanho];
 
+		int tamanho = 20, inicioIntervalo = 1, fimIntervalo = 30;
+		int auxiliar;
+		ArrayList<Integer> vetorR = new ArrayList<Integer>();
+		ArrayList<Integer> vetorS = new ArrayList<Integer>();
+
+		// Preenchimento do Vetor R
 		for (int i = 0; i < tamanho; i++) {
-			vetor[i] = numeroAleatorio(1, 20000);
+			vetorR.add(gerarAleatorio(inicioIntervalo, fimIntervalo));
 		}
 
-		System.out.print("[");
-		for (int i = 0; i < tamanho; i++) {
-			System.out.printf("%.2f, ",vetor[i]);
+		// Ordenação do Vetor R
+		for (int i = 0; i < vetorR.size(); i++) {
+			for (int j = 0; j < tamanho - 1; j++) {
+				if (vetorR.get(j) > vetorR.get(j + 1)) {
+					auxiliar = vetorR.get(j);
+					vetorR.set(j, vetorR.get(j + 1));
+					vetorR.set(j + 1, auxiliar);
+				}
+			}
 		}
-		System.out.println("]");
+	
+		System.out.println(vetorR);
+		//
+		for (int i = 0; i < vetorR.size(); i++) {
+			for (int j = 0; j < vetorR.size() - 1; j++) {
+				if (vetorR.get(j) != vetorR.get(j + 1)) {
+					vetorS.add(vetorR.get(j+1));
+				}
+			}
+
+		}
+
+		System.out.println(vetorS);
+
 	}
-
 }
