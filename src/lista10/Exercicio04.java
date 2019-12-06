@@ -2,7 +2,7 @@ package lista10;
 
 import java.util.Arrays;
 
-public class Exercicio4 {
+public class Exercicio04 {
 
 	public static void main(String[] args) {
 		String[] emails = { "luiza@gmail.com", "anderson@yahoo.com.br", "patryck@patryck.com", "luzia@hotmail.com" };
